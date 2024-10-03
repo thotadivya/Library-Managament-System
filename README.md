@@ -1,41 +1,41 @@
 # Library-Managament-System
-Library Management System (Java, Swing, MySQL)
-Project Overview
+
+# Project Overview
 This Library Management System (LMS) is a simple Java-based application built using Swing for the Graphical User Interface (GUI) and MySQL as the database. It is designed to manage library operations such as adding new books, adding new borrowers, borrowing books, returning books, searching for books, and viewing the borrowing history. The system is modular, with each responsibility divided into separate classes for better organization and maintenance.
 
-Features
-Add New Book:
+# Features
+# Add New Book:
 
 Allows the librarian to add a new book to the system by entering the book's ISBN, title, author, genre, and publication year.
 The book is stored in the books table in the MySQL database.
-Add New Borrower:
+# Add New Borrower:
 
 Allows the librarian to add a new borrower by entering the borrower's name, email, and contact number.
 The borrower is stored in the borrowers table in the MySQL database.
-Borrow a Book:
+# Borrow a Book:
 
 A borrower can borrow a book by providing their borrower ID and the ISBN of the book.
 Before borrowing, the system checks the book_copies table to ensure the book is available for borrowing.
 A new borrowing transaction is created in the borrowing_transactions table, and the availability of the book is updated.
-Return a Book:
+# Return a Book:
 
 The borrower can return a book by entering the transaction ID.
 The system updates the return date in the borrowing_transactions table and marks the book as available in the book_copies table.
-Search for Books:
+# Search for Books:
 
 Allows the librarian or borrower to search for books by entering keywords such as title, author, genre, or publication year.
 The system retrieves matching books from the books table and displays their availability status.
-View Borrowing History:
+# View Borrowing History:
 
 Allows the librarian or borrower to view the borrowing history for a specific borrower ID.
 Displays details such as ISBN, borrowing date, and return date (if returned).
-Technologies Used
+# Technologies Used
 Java: Core programming language for building the application logic and GUI.
 Swing: Java framework used for building desktop GUI components such as buttons, text fields, and panels.
 JDBC (Java Database Connectivity): API used to interact with the MySQL database and execute SQL queries.
 MySQL: Relational database that stores data about books, borrowers, and borrowing transactions.
 SQL: Used to perform CRUD (Create, Read, Update, Delete) operations on the MySQL database.
-Database Design
+# Database Design
 The application uses a MySQL database with the following tables:
 
 books:
@@ -67,12 +67,12 @@ Tracks the availability of books:
 isbn: ISBN of the book.
 serial_number: Serial number for each copy of the book.
 availability: Boolean value indicating whether the book is available for borrowing.
-Application Flow
+# Application Flow
 Start the Application:
 
 When the application starts, it connects to the MySQL database using JDBC.
 The main GUI is displayed with buttons for different operations (Add Book, Borrow Book, etc.).
-User Interactions:
+# User Interactions:
 
 When a button is clicked, the corresponding method is called:
 For example, clicking "Add New Book" opens a form to input book details, and the data is inserted into the books table upon submission.
@@ -85,30 +85,30 @@ Result Handling:
 After each operation (e.g., borrowing a book), a confirmation message is shown to the user using JOptionPane.
 If an operation fails (e.g., a book is unavailable for borrowing), an error message is displayed.
 Code Structure
-Main.java:
+# Main.java:
 
 This is the entry point of the application.
 It sets up the main GUI and connects buttons to event listeners that trigger the respective CRUD operations.
-DatabaseConnection.java:
+# DatabaseConnection.java:
 
 Handles connecting to the MySQL database using JDBC.
 This class establishes and manages the database connection.
-BookOperations.java:
+# BookOperations.java:
 
 Contains methods to handle book-related operations such as adding a new book and searching for books in the database.
-BorrowerOperations.java:
+# BorrowerOperations.java:
 
 Manages operations related to borrowers, such as adding new borrowers to the system.
-TransactionOperations.java:
+# TransactionOperations.java:
 
 Handles borrowing and returning books.
 Contains logic for recording borrowing transactions and updating book availability.
-Setup Instructions
+# Setup Instructions
 Clone the repository:
 
 bash
 Copy code
-git clone <your-repo-url>
+git clone <url>
 Install MySQL:
 
 Install MySQL on your machine and create a database named LMS_FDB.
@@ -147,7 +147,7 @@ CREATE TABLE book_copies (
     availability BOOLEAN,
     FOREIGN KEY (isbn) REFERENCES books(isbn)
 );
-Configure Database Credentials:
+# Configure Database Credentials:
 
 Modify the DatabaseConnection.java file to update the database URL, username, and password.
 Run the Application:
